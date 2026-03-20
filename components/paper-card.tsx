@@ -11,9 +11,9 @@ export function PaperCard({ paper }: PaperCardProps) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
-            Research Paper
+            Research
           </p>
-          <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">
+          <h2 className="mt-4 text-xl font-semibold tracking-[-0.03em] text-ink sm:text-2xl">
             {paper.title}
           </h2>
         </div>
@@ -25,6 +25,10 @@ export function PaperCard({ paper }: PaperCardProps) {
       </div>
 
       <p className="mt-5 font-mono text-xs text-muted">{paper.filename}</p>
+      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
+        Direct PDF access for notes, studies, and technical working papers published by
+        Pebbs.app.
+      </p>
 
       <div className="mt-7 flex flex-wrap gap-4 text-sm">
         <a

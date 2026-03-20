@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { site } from "@/data/site";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -18,24 +19,21 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pebbs.app"),
   title: {
-    default: "Pebbs.app",
-    template: "%s | Pebbs.app"
+    default: site.name,
+    template: `%s | ${site.name}`
   },
-  description:
-    "Pebbs.app presents projects, technical services, websites, apps, and research papers in a minimal, precise format.",
+  description: site.subheadline,
   openGraph: {
-    title: "Pebbs.app",
-    description:
-      "Projects, technical services, apps, websites, and research papers from Pebbs.app.",
+    title: site.name,
+    description: site.subheadline,
     url: "https://pebbs.app",
-    siteName: "Pebbs.app",
+    siteName: site.name,
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pebbs.app",
-    description:
-      "Projects, technical services, apps, websites, and research papers from Pebbs.app."
+    title: site.name,
+    description: site.subheadline
   }
 };
 

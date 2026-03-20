@@ -1,15 +1,15 @@
 # Pebbs.app
 
-Pebbs.app is a simple, production-ready MVP homepage built with Next.js, TypeScript, and Tailwind CSS. It is designed for static-friendly deployment on Vercel and for low-maintenance updates through plain data files and a papers folder in the repository.
+Pebbs.app is a production-ready business website built with Next.js, TypeScript, and Tailwind CSS. It is designed for static-friendly deployment on Vercel and for low-maintenance updates through plain data files and a papers folder in the repository.
 
 ## What this project includes
 
-- A polished homepage with featured links, selected projects, and latest research papers
-- Dedicated pages for projects, services, apps/websites, and research papers
+- A business-focused homepage for Pebbs.app
+- Dedicated pages for services, projects, research, and contact
 - Automatic research paper discovery from `public/papers`
 - Filename parsing for readable paper titles and optional date inference
 - Optional metadata overrides in `data/paper-metadata.ts`
-- A clean layout with reusable header, footer, and card components
+- Simple content files for site details, services, projects, and paper metadata
 
 ## Tech stack
 
@@ -36,13 +36,13 @@ npm run start
 
 ## Content editing
 
-### Projects, services, and apps
+### Business content
 
 Edit the data files:
 
+- `data/site.ts`
 - `data/projects.ts`
 - `data/services.ts`
-- `data/apps.ts`
 
 Each file exports a plain array of entries.
 
@@ -90,25 +90,6 @@ export const paperMetadata = {
 4. Deploy
 
 Because the site reads PDFs from the repository itself, adding or changing papers is just a normal Git commit followed by a deployment.
-
-## GitHub push workflow
-
-If the repository is already initialized locally:
-
-```bash
-git checkout -b codex/pebbs-homepage
-git add .
-git commit -m "Build Pebbs.app MVP homepage"
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin codex/pebbs-homepage
-```
-
-If your remote already exists, skip the `git remote add origin ...` step.
-
-After that, either:
-
-- Open a pull request and merge into your default branch, or
-- Push directly to your deployment branch if that is how your repo is set up
 
 ## Notes
 

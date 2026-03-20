@@ -3,99 +3,94 @@ import { PaperCard } from "@/components/paper-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SurfaceCard } from "@/components/surface-card";
 import { projects } from "@/data/projects";
+import { services } from "@/data/services";
+import { site } from "@/data/site";
 import { getResearchPapers } from "@/lib/papers";
 
 export const dynamic = "force-static";
 
-const featuredAreas = [
-  {
-    href: "/projects",
-    eyebrow: "Projects",
-    title: "Practical product work",
-    description:
-      "A concise view of active and shipped projects, with links and status information."
-  },
-  {
-    href: "/services",
-    eyebrow: "Services",
-    title: "Technical services",
-    description:
-      "Focused support for product strategy, prototyping, engineering, and research workflows."
-  },
-  {
-    href: "/apps",
-    eyebrow: "Apps / Websites",
-    title: "Public-facing products",
-    description:
-      "Applications, websites, and tools published under Pebbs.app and related experiments."
-  },
-  {
-    href: "/research",
-    eyebrow: "Research Papers",
-    title: "Automatically indexed PDFs",
-    description:
-      "Research papers are listed automatically from the repository without manual page edits."
-  }
+const practicalPoints = [
+  "Professional websites that win trust quickly",
+  "Software that fits the way a business actually works",
+  "Automation that reduces admin and follow-up"
+];
+
+const businessFacts = [
+  `Based in ${site.location}`,
+  `Led by ${site.lead}`,
+  "Focused on small and medium-sized businesses"
 ];
 
 export default async function HomePage() {
   const papers = await getResearchPapers();
-  const latestPapers = papers.slice(0, 3);
-  const selectedProjects = projects.filter((project) => project.featured).slice(0, 3);
+  const latestPapers = papers.slice(0, 2);
+  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
+  const primaryServices = services.filter((service) => service.priority === "Primary");
+  const supportServices = services.filter((service) => service.priority === "Support");
 
   return (
     <>
-      <section className="section-shell pb-8 pt-10 sm:pb-12 sm:pt-14">
-        <div className="hairline overflow-hidden rounded-[2rem] bg-white/85 shadow-card backdrop-blur">
-          <div className="grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-[1.4fr_0.8fr] lg:px-14">
+      <section className="section-shell pb-10 pt-10 sm:pb-12 sm:pt-14">
+        <div className="hairline subtle-grid overflow-hidden rounded-[2rem] bg-white shadow-card">
+          <div className="grid gap-10 px-6 py-12 sm:px-10 sm:py-14 lg:grid-cols-[1.35fr_0.8fr] lg:px-14">
             <div className="max-w-3xl">
               <p className="font-mono text-xs uppercase tracking-[0.28em] text-muted">
-                Pebbs.app
+                Liverpool digital development
               </p>
-              <h1 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.04em] text-ink sm:text-5xl lg:text-6xl">
-                Precise apps, technical tools, services, and research.
+              <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-ink sm:text-5xl lg:text-6xl">
+                {site.headline}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">
-                Pebbs.app is a minimal home for software projects, client services,
-                product experiments, and research papers. The site is designed to stay
-                simple: edit a data file for content, or drop a PDF into a folder to
-                publish it on the research page.
+                {site.subheadline}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/projects"
+                <a
+                  href={`mailto:${site.email}`}
                   className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black"
                 >
-                  View Projects
+                  Discuss a Project
+                </a>
+                <Link
+                  href="/services"
+                  className="rounded-full border border-line bg-white px-5 py-3 text-sm font-medium text-ink transition hover:bg-stone-50"
+                >
+                  View Services
                 </Link>
                 <Link
                   href="/research"
                   className="rounded-full border border-line bg-white px-5 py-3 text-sm font-medium text-ink transition hover:bg-stone-50"
                 >
-                  Browse Research
+                  Explore Research
                 </Link>
               </div>
             </div>
 
-            <div className="grid gap-4 self-end sm:grid-cols-2 lg:grid-cols-1">
-              <div className="rounded-[1.5rem] border border-line bg-panel p-5">
+            <div className="grid gap-4">
+              <SurfaceCard className="rounded-[1.5rem] bg-panel p-6">
                 <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
-                  Maintainability
+                  What we help with
                 </p>
-                <p className="mt-3 text-sm leading-6 text-ink">
-                  No CMS, no database, no admin layer. Content lives in plain TypeScript
-                  files and PDFs inside the repository.
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] border border-line bg-panel p-5">
+                <div className="mt-5 space-y-4">
+                  {practicalPoints.map((point) => (
+                    <div
+                      key={point}
+                      className="border-b border-line/80 pb-4 text-sm leading-6 text-ink last:border-b-0 last:pb-0"
+                    >
+                      {point}
+                    </div>
+                  ))}
+                </div>
+              </SurfaceCard>
+              <SurfaceCard className="rounded-[1.5rem] p-6">
                 <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
-                  Deployment
+                  Pebbs.app
                 </p>
-                <p className="mt-3 text-sm leading-6 text-ink">
-                  Built for Next.js on Vercel with static-friendly server rendering and a
-                  structure that stays easy to edit.
-                </p>
-              </div>
+                <div className="mt-5 space-y-3 text-sm leading-6 text-muted">
+                  {businessFacts.map((fact) => (
+                    <p key={fact}>{fact}</p>
+                  ))}
+                </div>
+              </SurfaceCard>
             </div>
           </div>
         </div>
@@ -104,27 +99,33 @@ export default async function HomePage() {
       <section className="page-section">
         <div className="section-shell">
           <SectionHeading
-            eyebrow="Overview"
-            title="One quiet place for products, services, and research."
-            description="Each section is intentionally lightweight, direct, and easy to maintain."
+            eyebrow="Services"
+            title="Practical digital work for businesses that need better systems"
+            description="Pebbs.app is software-led first. Websites, software, and automation sit at the centre of the work, with support services around them where they are useful."
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {featuredAreas.map((area) => (
-              <SurfaceCard
-                key={area.href}
-                href={area.href}
-                className="h-full min-h-[220px] rounded-[1.5rem] p-6"
-              >
-                <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
-                  {area.eyebrow}
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {primaryServices.map((service) => (
+              <SurfaceCard key={service.title} className="h-full rounded-[1.5rem] p-6">
+                <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
+                  {service.priority}
                 </p>
                 <h2 className="mt-4 text-xl font-semibold tracking-[-0.03em] text-ink">
-                  {area.title}
+                  {service.title}
                 </h2>
-                <p className="mt-3 text-sm leading-6 text-muted">{area.description}</p>
-                <span className="mt-8 inline-flex text-sm font-medium text-ink">
-                  Open section
-                </span>
+                <p className="mt-4 text-sm leading-6 text-muted">{service.description}</p>
+              </SurfaceCard>
+            ))}
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {supportServices.map((service) => (
+              <SurfaceCard key={service.title} className="h-full rounded-[1.5rem] bg-panel p-6">
+                <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
+                  Support service
+                </p>
+                <h2 className="mt-4 text-lg font-semibold tracking-[-0.03em] text-ink">
+                  {service.title}
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-muted">{service.description}</p>
               </SurfaceCard>
             ))}
           </div>
@@ -135,24 +136,34 @@ export default async function HomePage() {
         <div className="section-shell">
           <div className="flex items-end justify-between gap-4">
             <SectionHeading
-              eyebrow="Latest Research"
-              title="Recent papers from the repository"
-              description="PDF files inside /public/papers are discovered automatically during the build."
+              eyebrow="Selected Work"
+              title="The kind of work Pebbs.app delivers"
+              description="Examples of the commercial problems the business is set up to solve for service-led companies and growing SMEs."
             />
-            <Link href="/research" className="hidden text-sm font-medium text-ink md:inline-flex">
-              View all papers
+            <Link href="/projects" className="hidden text-sm font-medium text-ink md:inline-flex">
+              View Projects
             </Link>
           </div>
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {latestPapers.length > 0 ? (
-              latestPapers.map((paper) => <PaperCard key={paper.slug} paper={paper} />)
-            ) : (
-              <div className="rounded-[1.5rem] border border-dashed border-line bg-white p-6 text-sm leading-6 text-muted lg:col-span-3">
-                No research papers have been added yet. Place PDF files in
-                <span className="mx-1 font-mono text-ink">/public/papers</span>
-                and they will appear here automatically on the next build or deployment.
-              </div>
-            )}
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <SurfaceCard key={project.title} className="h-full rounded-[1.5rem] p-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+                    {project.status}
+                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+                    {project.sector}
+                  </span>
+                </div>
+                <h2 className="mt-4 text-xl font-semibold tracking-[-0.03em] text-ink">
+                  {project.title}
+                </h2>
+                <p className="mt-4 text-sm leading-6 text-muted">{project.description}</p>
+                <p className="mt-5 border-t border-line/80 pt-5 text-sm leading-6 text-ink">
+                  {project.outcome}
+                </p>
+              </SurfaceCard>
+            ))}
           </div>
         </div>
       </section>
@@ -161,38 +172,81 @@ export default async function HomePage() {
         <div className="section-shell">
           <div className="flex items-end justify-between gap-4">
             <SectionHeading
-              eyebrow="Selected Projects"
-              title="A few example initiatives"
-              description="Projects are defined in a single data file so the list stays straightforward to update."
+              eyebrow="Research"
+              title="Research, notes, and working papers"
+              description="Pebbs.app also publishes research and technical notes. The research section is maintained directly from the repository by adding PDF files to the papers folder."
             />
-            <Link href="/projects" className="hidden text-sm font-medium text-ink md:inline-flex">
-              View all projects
+            <Link href="/research" className="hidden text-sm font-medium text-ink md:inline-flex">
+              View Research
             </Link>
           </div>
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {selectedProjects.map((project) => (
-              <SurfaceCard key={project.title} className="h-full rounded-[1.5rem] p-6">
-                <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-xl font-semibold tracking-[-0.03em] text-ink">
-                    {project.title}
-                  </h2>
-                  <span className="rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
-                    {project.status}
-                  </span>
-                </div>
-                <p className="mt-4 text-sm leading-6 text-muted">{project.description}</p>
-                <div className="mt-6">
-                  <Link
-                    href={project.link}
-                    className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
-                    target={project.link.startsWith("http") ? "_blank" : undefined}
-                    rel={project.link.startsWith("http") ? "noreferrer" : undefined}
-                  >
-                    Explore project
-                  </Link>
-                </div>
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {latestPapers.length > 0 ? (
+              latestPapers.map((paper) => <PaperCard key={paper.slug} paper={paper} />)
+            ) : (
+              <SurfaceCard className="rounded-[1.5rem] border-dashed p-6 lg:col-span-2">
+                <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
+                  Research
+                </p>
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
+                  No papers have been added yet. Place PDF files in
+                  <span className="mx-1 font-mono text-ink">/public/papers</span>
+                  and they will be listed automatically on the research page.
+                </p>
               </SurfaceCard>
-            ))}
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section border-y border-line/80 bg-white/70">
+        <div className="section-shell grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <SectionHeading
+            eyebrow="About"
+            title="A Liverpool-based development business built around useful digital work"
+            description={site.positioning}
+          />
+          <SurfaceCard className="rounded-[1.5rem] bg-panel p-6">
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
+              Good fit
+            </p>
+            <div className="mt-5 space-y-4 text-sm leading-6 text-muted">
+              <p>Local companies that need a stronger website and clearer messaging.</p>
+              <p>Service businesses that want less admin and faster response times.</p>
+              <p>Growing teams that need joined-up systems instead of patchwork tools.</p>
+            </div>
+          </SurfaceCard>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="section-shell">
+          <div className="hairline rounded-[2rem] bg-ink px-6 py-10 text-white sm:px-10 sm:py-12">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-white/70">
+              Contact
+            </p>
+            <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+              Clear websites, better systems, and less manual work.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">
+              If your business needs a better website, custom software, booking tools,
+              automation, or a cleaner digital setup, Pebbs.app is available for
+              project discussions.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={`mailto:${site.email}`}
+                className="rounded-full bg-white px-5 py-3 text-sm font-medium text-ink transition hover:bg-stone-100"
+              >
+                Get in Touch
+              </a>
+              <Link
+                href="/contact"
+                className="rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+              >
+                Contact Details
+              </Link>
+            </div>
           </div>
         </div>
       </section>

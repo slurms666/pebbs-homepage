@@ -1,41 +1,48 @@
 export type ProjectEntry = {
   title: string;
   description: string;
-  status: "Live" | "In Progress" | "Research";
-  link: string;
+  status: "Delivered" | "In Delivery" | "Planning";
+  sector: string;
+  outcome: string;
+  link?: string;
+  linkLabel?: string;
   featured?: boolean;
 };
 
 export const projects: ProjectEntry[] = [
   {
-    title: "Pebbs Index",
+    title: "Service Business Website Rebuild",
     description:
-      "A searchable index for technical assets, project references, and internal knowledge artifacts with an emphasis on clarity and speed.",
-    status: "Live",
-    link: "https://example.com/pebbs-index",
+      "A clearer, faster website structure for a local business that needed to explain its services properly, look more established, and generate better quality enquiries on mobile and desktop.",
+    status: "Delivered",
+    sector: "Local services",
+    outcome: "Sharper positioning, better enquiry flow, and a more credible first impression.",
     featured: true
   },
   {
-    title: "Pebbs Lab Notes",
+    title: "Quote and Follow-up Automation",
     description:
-      "A publishing workflow for lightweight experiments, working notes, and research outputs across product and engineering topics.",
-    status: "In Progress",
-    link: "https://example.com/pebbs-lab-notes",
+      "An internal workflow to reduce repetitive admin around incoming enquiries, quotations, reminders, and customer follow-up for a time-constrained small business.",
+    status: "In Delivery",
+    sector: "Trades and field services",
+    outcome: "Less manual chasing, quicker response times, and more consistent communication.",
     featured: true
   },
   {
-    title: "Pebbs Methods",
+    title: "Booking and Customer Management Setup",
     description:
-      "A framework for turning exploratory research and client discovery into structured implementation plans.",
-    status: "Research",
-    link: "https://example.com/pebbs-methods",
+      "A joined-up booking and customer management workflow for an appointment-led business that needed fewer gaps between bookings, reminders, customer records, and day-to-day admin.",
+    status: "Planning",
+    sector: "Appointment-led businesses",
+    outcome: "Simpler booking management and a cleaner operational setup as the business grows.",
     featured: true
   },
   {
-    title: "Pebbs Console",
+    title: "Operations Dashboard and Reporting",
     description:
-      "A minimal operational dashboard for checking activity, milestones, and release readiness across products.",
-    status: "In Progress",
-    link: "https://example.com/pebbs-console"
+      "A lightweight internal dashboard to pull together business activity, reporting, and operational updates into one place for quicker decisions and less fragmented admin.",
+    status: "Planning",
+    sector: "Growing SMEs",
+    outcome: "Clearer visibility across operations without introducing a heavy software stack."
   }
 ];

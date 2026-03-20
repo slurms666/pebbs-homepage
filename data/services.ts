@@ -1,27 +1,62 @@
 export type ServiceEntry = {
   title: string;
   description: string;
+  priority: "Primary" | "Support";
 };
 
 export const services: ServiceEntry[] = [
   {
-    title: "Product Prototyping",
+    title: "Website Design and Development",
     description:
-      "From initial concept to a production-ready MVP, with a bias toward simple architecture and fast iteration."
+      "Professional websites built to help businesses look credible, explain what they do clearly, and turn visitors into enquiries.",
+    priority: "Primary"
   },
   {
-    title: "Technical Research",
+    title: "Custom Software Development",
     description:
-      "Applied research, literature review support, and synthesis for product, AI, and software strategy decisions."
+      "Bespoke software built around your business, from internal tools and portals to systems that save time and reduce manual work.",
+    priority: "Primary"
   },
   {
-    title: "Build and Delivery Support",
+    title: "Business Automation",
     description:
-      "Hands-on implementation help for shipping websites, internal tools, and lightweight applications on modern web stacks."
+      "Automation for repetitive tasks, follow-ups, lead handling, reminders, reporting, and other day-to-day business processes.",
+    priority: "Primary"
   },
   {
-    title: "Architecture Simplification",
+    title: "AI Assistants and Chatbots",
     description:
-      "Reducing unnecessary complexity in existing products so teams can maintain and deploy them with more confidence."
+      "Practical AI tools that help businesses respond faster, capture enquiries, support customers, and improve internal workflows.",
+    priority: "Primary"
+  },
+  {
+    title: "Booking and Appointment Systems",
+    description:
+      "Booking systems that make it easier for customers to schedule appointments and easier for businesses to manage availability.",
+    priority: "Primary"
+  },
+  {
+    title: "CRM and Customer Management Systems",
+    description:
+      "Systems for managing leads, customers, appointments, communication, and ongoing business relationships in one place.",
+    priority: "Primary"
+  },
+  {
+    title: "Branding and Graphic Design",
+    description:
+      "Clean, professional design for websites, branding, digital assets, and marketing materials.",
+    priority: "Support"
+  },
+  {
+    title: "Social Media Support",
+    description:
+      "Practical support for content, design, and systems that help businesses stay active and presentable online.",
+    priority: "Support"
+  },
+  {
+    title: "SEO and Digital Marketing",
+    description:
+      "Straightforward digital marketing support to help businesses improve visibility, attract better enquiries, and get more from their website.",
+    priority: "Support"
   }
 ];
