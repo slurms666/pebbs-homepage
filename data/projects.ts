@@ -11,21 +11,27 @@ export type ProjectEntry = {
 
 export const projects: ProjectEntry[] = [
   {
-    title: "Service Business Website Rebuild",
+    title: "WFH",
     description:
-      "A clearer, faster website structure for a local business that needed to explain its services properly, look more established, and generate better quality enquiries on mobile and desktop.",
+      "A free browser-based utility for people who work from home or need to keep a locked-down work machine awake and active without installing software.",
     status: "Delivered",
-    sector: "Local services",
-    outcome: "Sharper positioning, better enquiry flow, and a more credible first impression.",
+    sector: "Free utility",
+    outcome:
+      "Small, natural pointer movement while active to help prevent sleep during presentations, screen sharing, monitoring, long downloads, long-form reading, or remote sessions.",
+    link: "https://wfh.pebbs.app",
+    linkLabel: "Open app",
     featured: true
   },
   {
-    title: "Quote and Follow-up Automation",
+    title: "TXT World",
     description:
-      "An internal workflow to reduce repetitive admin around incoming enquiries, quotations, reminders, and customer follow-up for a time-constrained small business.",
-    status: "In Delivery",
-    sector: "Trades and field services",
-    outcome: "Less manual chasing, quicker response times, and more consistent communication.",
+      "A procedurally generated alien world in ASCII art that uses a seed to create new terrain and lets the user move through the world with familiar first-person controls.",
+    status: "Delivered",
+    sector: "Experimental app",
+    outcome:
+      "Seed-based terrain generation with WASD movement and mouse-look navigation in a lightweight browser experience.",
+    link: "https://txtworld.pebbs.app",
+    linkLabel: "Explore project",
     featured: true
   },
   {

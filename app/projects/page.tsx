@@ -14,8 +14,8 @@ export default function ProjectsPage() {
       <div className="section-shell">
         <PageIntro
           eyebrow="Projects"
-          title="Selected work and representative delivery"
-          description="A small sample of the kind of project work Pebbs.app is built to deliver for service-led businesses and growing SMEs."
+          title="Selected projects and active development"
+          description="A mix of live Pebbs projects and representative delivery work that shows the kind of practical digital systems Pebbs.app builds."
         />
         <div className="mt-10 grid gap-5">
           {projects.map((project) => (
@@ -40,11 +40,32 @@ export default function ProjectsPage() {
                     Outcome
                   </p>
                   <p className="mt-3 text-sm leading-6 text-ink">{project.outcome}</p>
+                  {project.link ? (
+                    <div className="mt-5">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
+                      >
+                        {project.linkLabel ?? "Visit project"}
+                      </a>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </SurfaceCard>
           ))}
         </div>
+        <SurfaceCard className="mt-10 rounded-[1.75rem] bg-panel p-6 sm:p-7">
+          <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
+            More to come
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
+            Pebbs.app is always working on new projects. Check back as more work is
+            published over time.
+          </p>
+        </SurfaceCard>
       </div>
     </section>
   );

@@ -162,6 +162,18 @@ export default async function HomePage() {
                 <p className="mt-5 border-t border-line/80 pt-5 text-sm leading-6 text-ink">
                   {project.outcome}
                 </p>
+                {project.link ? (
+                  <div className="mt-5">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
+                    >
+                      {project.linkLabel ?? "Visit project"}
+                    </a>
+                  </div>
+                ) : null}
               </SurfaceCard>
             ))}
           </div>
