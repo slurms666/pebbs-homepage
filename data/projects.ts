@@ -35,6 +35,17 @@ export const projects: ProjectEntry[] = [
     featured: true
   },
   {
+    title: "3310",
+    description:
+      "A browser-based emulator of classic Nokia 3310 games, rebuilt as a lightweight web project with the same simple, familiar arcade feel.",
+    status: "Delivered",
+    sector: "Experimental app",
+    outcome:
+      "Classic mobile gameplay recreated in the browser without requiring any install or setup.",
+    link: "https://3310.pebbs.app/",
+    linkLabel: "Open emulator"
+  },
+  {
     title: "Booking and Customer Management Setup",
     description:
       "A joined-up booking and customer management workflow for an appointment-led business that needed fewer gaps between bookings, reminders, customer records, and day-to-day admin.",
