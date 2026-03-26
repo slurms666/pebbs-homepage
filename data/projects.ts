@@ -46,6 +46,28 @@ export const projects: ProjectEntry[] = [
     linkLabel: "Open emulator"
   },
   {
+    title: "Spin",
+    description:
+      "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",
+    status: "In Delivery",
+    sector: "In-development tool",
+    outcome:
+      "Live project work focused on reliable logging, clean session tracking, and a straightforward workflow for reviewing roulette data.",
+    link: "https://spin.pebbs.app/",
+    linkLabel: "View project"
+  },
+  {
+    title: "Pitchfluence",
+    description:
+      "An in-development website for Pitchfluence, currently being built and refined as a public-facing product that visitors can already preview.",
+    status: "In Delivery",
+    sector: "In-development website",
+    outcome:
+      "Active delivery work on structure, presentation, and the core experience while the site remains under development.",
+    link: "https://pitch.pebbs.app",
+    linkLabel: "View website"
+  },
+  {
     title: "Booking and Customer Management Setup",
     description:
       "A joined-up booking and customer management workflow for an appointment-led business that needed fewer gaps between bookings, reminders, customer records, and day-to-day admin.",
