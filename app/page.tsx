@@ -6,7 +6,7 @@ import { SurfaceCard } from "@/components/surface-card";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
-import { getDesignPieces } from "@/lib/design";
+import { getDesignHighlights } from "@/lib/design";
 import { getResearchPapers } from "@/lib/papers";
 
 export const dynamic = "force-static";
@@ -25,9 +25,9 @@ const businessFacts = [
 
 export default async function HomePage() {
   const papers = await getResearchPapers();
-  const designPieces = await getDesignPieces();
+  const designHighlights = await getDesignHighlights();
   const latestPapers = papers.slice(0, 2);
-  const latestDesign = designPieces.slice(0, 2);
+  const latestDesign = designHighlights.slice(0, 2);
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
   const primaryServices = services.filter((service) => service.priority === "Primary");
   const supportServices = services.filter((service) => service.priority === "Support");

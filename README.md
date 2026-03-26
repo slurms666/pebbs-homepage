@@ -46,6 +46,7 @@ Edit the data files:
 - `data/projects.ts`
 - `data/services.ts`
 - `data/design-metadata.ts`
+- `data/design-groups.ts`
 
 Each file exports a plain array of entries.
 
@@ -100,6 +101,33 @@ Supported examples:
 Optional metadata lives in:
 
 - `data/design-metadata.ts`
+
+If several images belong to one company or project, group them in:
+
+- `data/design-groups.ts`
+
+Example:
+
+```ts
+export const designGroups = [
+  {
+    slug: "oakwell-plumbing-logos",
+    title: "Oakwell Plumbing Logo Concepts",
+    client: "Oakwell Plumbing",
+    description:
+      "Two logo directions developed for Oakwell Plumbing, exploring a cleaner identity for vehicles, uniforms, and general business branding.",
+    images: ["oakwell-plumbing-logo-1.png", "oakwell-plumbing-logo-2.png"]
+  },
+  {
+    slug: "north-end-cafe-menu",
+    title: "North End Cafe Menu Design",
+    client: "North End Cafe",
+    description:
+      "A menu design created to make pricing, categories, and house items easier to scan in print and on social media.",
+    images: ["north-end-cafe-menu-1.jpg"]
+  }
+];
+```
 
 ## Deploy to Vercel
 

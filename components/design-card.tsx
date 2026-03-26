@@ -1,20 +1,25 @@
 import Image from "next/image";
-import type { DesignPiece } from "@/lib/design";
+import type { DesignHighlight, DesignPiece } from "@/lib/design";
 import { SurfaceCard } from "@/components/surface-card";
 
 type DesignCardProps = {
-  piece: DesignPiece;
+  piece: DesignPiece | DesignHighlight;
 };
 
 export function DesignCard({ piece }: DesignCardProps) {
-  const isSvg = piece.href.toLowerCase().endsWith(".svg");
+  const imageHref = "imageHref" in piece ? piece.imageHref : piece.href;
+  const isSvg = imageHref.toLowerCase().endsWith(".svg");
+  const summary =
+    piece.summary ??
+    "Artwork, identity studies, and design work published directly from the repository.";
+  const label = "label" in piece ? piece.label : "Artwork";
 
   return (
     <SurfaceCard className="h-full rounded-[1.5rem] p-5 sm:p-6">
       <a href={piece.href} target="_blank" rel="noreferrer" className="block">
         <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-line bg-stone-100">
           <Image
-            src={piece.href}
+            src={imageHref}
             alt={piece.title}
             fill
             sizes="(min-width: 1024px) 33vw, 100vw"
@@ -25,9 +30,7 @@ export function DesignCard({ piece }: DesignCardProps) {
       </a>
       <div className="mt-5 flex items-start justify-between gap-4">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
-            Design
-          </p>
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">{label}</p>
           <h2 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-ink">
             {piece.title}
           </h2>
@@ -38,10 +41,7 @@ export function DesignCard({ piece }: DesignCardProps) {
           </span>
         ) : null}
       </div>
-      <p className="mt-4 text-sm leading-6 text-muted">
-        {piece.summary ??
-          "Artwork, identity studies, and design work published directly from the repository."}
-      </p>
+      <p className="mt-4 text-sm leading-6 text-muted">{summary}</p>
       <div className="mt-5 flex flex-wrap gap-4 text-sm">
         <a
           href={piece.href}
