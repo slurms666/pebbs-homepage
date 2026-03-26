@@ -2,7 +2,7 @@ export const site = {
   name: "Pebbs.app",
   lead: "Greg Harris",
   location: "Liverpool",
-  email: "crushedbb@outlook.com",
+  email: "carl@pebbs.app",
   headline: "Websites, software and automation for modern businesses",
   subheadline:
     "Pebbs.app helps businesses modernise how they look, work, and grow with websites, software, automation, and digital systems.",

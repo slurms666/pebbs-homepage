@@ -51,7 +51,6 @@ export function DesignGroupCard({ group }: DesignGroupCardProps) {
                     unoptimized={isSvg}
                   />
                 </div>
-                <p className="mt-3 text-sm text-muted">{image.title}</p>
               </a>
             );
           })}
