@@ -9,4 +9,21 @@ export type DesignGroupDefinition = {
 
 // Group related design files together when you want a single entry with one
 // description and multiple images.
-export const designGroups: DesignGroupDefinition[] = [];
+export const designGroups: DesignGroupDefinition[] = [
+  {
+    slug: "pitchfluence-logo",
+    title: "Pitchfluence Logo",
+    client: "Pitchfluence",
+    description:
+      "Two logo options created for Pitchfluence, an app in development in the influencer marketing space.",
+    images: ["pitch1.png", "pitch2.png"]
+  },
+  {
+    slug: "print-on-demand-design-dog",
+    title: "Private Print on Demand Client",
+    client: "Private",
+    description:
+      "One of many characters we created for a client's POD campaign and an image for an ad they were creating in-house.",
+    images: ["pod1.jpg", "pod2.png"]
+  }
+];
