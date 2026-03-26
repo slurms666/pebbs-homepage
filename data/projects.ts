@@ -1,7 +1,7 @@
 export type ProjectEntry = {
   title: string;
   description: string;
-  status: "Delivered" | "In Delivery" | "Planning";
+  status: "Delivered" | "In Development" | "Planning";
   sector: string;
   outcome: string;
   link?: string;
@@ -49,7 +49,7 @@ export const projects: ProjectEntry[] = [
     title: "Spin",
     description:
       "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",
-    status: "In Delivery",
+    status: "In Development",
     sector: "In-development tool",
     outcome:
       "Live project work focused on reliable logging, clean session tracking, and a straightforward workflow for reviewing roulette data.",
@@ -60,7 +60,7 @@ export const projects: ProjectEntry[] = [
     title: "Pitchfluence",
     description:
       "An in-development influencer marketing website for Pitchfluence, currently being built and refined as a public-facing product that visitors can already preview.",
-    status: "In Delivery",
+    status: "In Development",
     sector: "Influencer marketing",
     outcome:
       "Active delivery work on structure, presentation, and the core experience while the influencer marketing site remains under development.",
@@ -71,7 +71,7 @@ export const projects: ProjectEntry[] = [
     title: "Aspect",
     description:
       "A version-one app in development that gives a forecast of how sunlight will strike a property throughout the day, helping homebuyers understand light, shade, and orientation before they buy.",
-    status: "In Delivery",
+    status: "In Development",
     sector: "Property technology",
     outcome:
       "A public development build that lets people preview the product and its core sunlight forecasting concept while work continues.",
