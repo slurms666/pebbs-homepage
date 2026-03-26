@@ -1,6 +1,6 @@
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { paperMetadata } from "@/data/paper-metadata";
+import { researchPapers } from "@/data/research-papers";
 import {
   createSlugFromFilename,
   filenameToTitle,
@@ -25,11 +25,14 @@ export type ResearchPaper = {
 export async function getResearchPapers(): Promise<ResearchPaper[]> {
   try {
     const entries = await readdir(papersDirectory);
+    const metadataByFilename = new Map(
+      researchPapers.map((paper) => [paper.filename, paper])
+    );
 
     return entries
       .filter((entry) => pdfExtensionPattern.test(entry))
       .map((filename) => {
-        const metadata = paperMetadata[filename];
+        const metadata = metadataByFilename.get(filename);
         const date = metadata?.date ?? inferDateFromFilename(filename, pdfExtensionPattern);
 
         return {

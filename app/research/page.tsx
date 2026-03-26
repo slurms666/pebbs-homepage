@@ -20,7 +20,7 @@ export default async function ResearchPage() {
         <PageIntro
           eyebrow="Research"
           title="Research papers, studies, and technical notes"
-          description="Pebbs.app publishes PDFs directly from the repository. Add a paper to the papers folder and it will appear here automatically on the next build."
+          description="Pebbs.app publishes PDFs directly from the repository. Add a paper to the papers folder and it will appear here automatically on the next build, with optional title and summary details managed in a simple research data file."
         />
 
         {papers.length > 0 ? (
@@ -37,7 +37,9 @@ export default async function ResearchPage() {
             <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
               Add one or more PDF files to
               <span className="mx-1 font-mono text-ink">/public/papers</span>
-              and redeploy. Files named with a leading date such as
+              and redeploy. Optional titles and summaries can be added in
+              <span className="mx-1 font-mono text-ink">data/research-papers.ts</span>.
+              Files named with a leading date such as
               <span className="mx-1 font-mono text-ink">
                 2026-03-19-business-automation-for-service-teams.pdf
               </span>
