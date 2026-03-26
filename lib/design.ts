@@ -1,6 +1,6 @@
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { paperMetadata } from "@/data/paper-metadata";
+import { designMetadata } from "@/data/design-metadata";
 import {
   createSlugFromFilename,
   filenameToTitle,
@@ -9,10 +9,10 @@ import {
   sortByDateThenTitle
 } from "@/lib/content-utils";
 
-const papersDirectory = path.join(process.cwd(), "public", "papers");
-const pdfExtensionPattern = /\.pdf$/i;
+const designDirectory = path.join(process.cwd(), "public", "design");
+const imageExtensionPattern = /\.(png|jpe?g|webp|gif|avif|svg)$/i;
 
-export type ResearchPaper = {
+export type DesignPiece = {
   slug: string;
   title: string;
   summary?: string;
@@ -22,22 +22,22 @@ export type ResearchPaper = {
   displayDate?: string;
 };
 
-export async function getResearchPapers(): Promise<ResearchPaper[]> {
+export async function getDesignPieces(): Promise<DesignPiece[]> {
   try {
-    const entries = await readdir(papersDirectory);
+    const entries = await readdir(designDirectory);
 
     return entries
-      .filter((entry) => pdfExtensionPattern.test(entry))
+      .filter((entry) => imageExtensionPattern.test(entry))
       .map((filename) => {
-        const metadata = paperMetadata[filename];
-        const date = metadata?.date ?? inferDateFromFilename(filename, pdfExtensionPattern);
+        const metadata = designMetadata[filename];
+        const date = metadata?.date ?? inferDateFromFilename(filename, imageExtensionPattern);
 
         return {
-          slug: createSlugFromFilename(filename, pdfExtensionPattern),
-          title: metadata?.title ?? filenameToTitle(filename, pdfExtensionPattern),
+          slug: createSlugFromFilename(filename, imageExtensionPattern),
+          title: metadata?.title ?? filenameToTitle(filename, imageExtensionPattern),
           summary: metadata?.summary,
           filename,
-          href: `/papers/${filename}`,
+          href: `/design/${filename}`,
           date,
           displayDate: date ? formatDisplayDate(date) : undefined
         };

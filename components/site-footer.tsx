@@ -18,6 +18,9 @@ export function SiteFooter() {
           <Link href="/projects" className="hover:text-ink">
             Projects
           </Link>
+          <Link href="/design" className="hover:text-ink">
+            Design
+          </Link>
           <Link href="/research" className="hover:text-ink">
             Research
           </Link>

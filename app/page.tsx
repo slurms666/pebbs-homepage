@@ -1,3 +1,4 @@
+import { DesignCard } from "@/components/design-card";
 import Link from "next/link";
 import { PaperCard } from "@/components/paper-card";
 import { SectionHeading } from "@/components/section-heading";
@@ -5,6 +6,7 @@ import { SurfaceCard } from "@/components/surface-card";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { getDesignPieces } from "@/lib/design";
 import { getResearchPapers } from "@/lib/papers";
 
 export const dynamic = "force-static";
@@ -23,7 +25,9 @@ const businessFacts = [
 
 export default async function HomePage() {
   const papers = await getResearchPapers();
+  const designPieces = await getDesignPieces();
   const latestPapers = papers.slice(0, 2);
+  const latestDesign = designPieces.slice(0, 2);
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
   const primaryServices = services.filter((service) => service.priority === "Primary");
   const supportServices = services.filter((service) => service.priority === "Support");
@@ -176,6 +180,37 @@ export default async function HomePage() {
                 ) : null}
               </SurfaceCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="section-shell">
+          <div className="flex items-end justify-between gap-4">
+            <SectionHeading
+              eyebrow="Design"
+              title="Design work published the same way"
+              description="Design uses the same low-maintenance approach as Research. Add artwork files to the repository and they appear automatically on the next build."
+            />
+            <Link href="/design" className="hidden text-sm font-medium text-ink md:inline-flex">
+              View Design
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {latestDesign.length > 0 ? (
+              latestDesign.map((piece) => <DesignCard key={piece.slug} piece={piece} />)
+            ) : (
+              <SurfaceCard className="rounded-[1.5rem] border-dashed p-6 lg:col-span-2">
+                <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
+                  Design
+                </p>
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
+                  No design work has been added yet. Place image files in
+                  <span className="mx-1 font-mono text-ink">/public/design</span>
+                  and they will be listed automatically on the Design page.
+                </p>
+              </SurfaceCard>
+            )}
           </div>
         </div>
       </section>

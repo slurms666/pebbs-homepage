@@ -5,11 +5,13 @@ Pebbs.app is a production-ready business website built with Next.js, TypeScript,
 ## What this project includes
 
 - A business-focused homepage for Pebbs.app
-- Dedicated pages for services, projects, research, and contact
+- Dedicated pages for services, projects, design, research, and contact
 - Automatic research paper discovery from `public/papers`
+- Automatic design-work discovery from `public/design`
 - Filename parsing for readable paper titles and optional date inference
 - Optional metadata overrides in `data/paper-metadata.ts`
-- Simple content files for site details, services, projects, and paper metadata
+- Optional metadata overrides in `data/design-metadata.ts`
+- Simple content files for site details, services, projects, and content metadata
 
 ## Tech stack
 
@@ -43,6 +45,7 @@ Edit the data files:
 - `data/site.ts`
 - `data/projects.ts`
 - `data/services.ts`
+- `data/design-metadata.ts`
 
 Each file exports a plain array of entries.
 
@@ -81,6 +84,22 @@ export const paperMetadata = {
   }
 };
 ```
+
+### Design work
+
+1. Add image files to `public/design`
+2. Commit and push the change
+3. Vercel will pick up the files during the next deployment build
+
+Supported examples:
+
+- `2026-03-26-brand-identity-study.png`
+- `window-cleaning-flyer-concept.jpg`
+- `service-business-logo-sheet.svg`
+
+Optional metadata lives in:
+
+- `data/design-metadata.ts`
 
 ## Deploy to Vercel
 
