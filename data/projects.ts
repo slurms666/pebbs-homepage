@@ -46,6 +46,17 @@ export const projects: ProjectEntry[] = [
     linkLabel: "Open emulator"
   },
   {
+    title: "Sausage",
+    description:
+      "A desktop and mobile browser game that tips its hat to Flappy Bird with greasy-spoon themed sausagey goodness and a deliberately simple arcade feel.",
+    status: "Delivered",
+    sector: "Browser game",
+    outcome:
+      "Fast, lightweight gameplay that works across desktop and mobile as a playful web-first project.",
+    link: "https://sausage.pebbs.app",
+    linkLabel: "Play game"
+  },
+  {
     title: "Spin",
     description:
       "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",
