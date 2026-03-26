@@ -26,8 +26,8 @@ export function PaperCard({ paper }: PaperCardProps) {
 
       <p className="mt-5 font-mono text-xs text-muted">{paper.filename}</p>
       <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
-        Direct PDF access for notes, studies, and technical working papers published by
-        Pebbs.app.
+        {paper.summary ??
+          "Direct PDF access for notes, studies, and technical working papers published by Pebbs.app."}
       </p>
 
       <div className="mt-7 flex flex-wrap gap-4 text-sm">

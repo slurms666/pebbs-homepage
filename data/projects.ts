@@ -59,13 +59,24 @@ export const projects: ProjectEntry[] = [
   {
     title: "Pitchfluence",
     description:
-      "An in-development website for Pitchfluence, currently being built and refined as a public-facing product that visitors can already preview.",
+      "An in-development influencer marketing website for Pitchfluence, currently being built and refined as a public-facing product that visitors can already preview.",
     status: "In Delivery",
-    sector: "In-development website",
+    sector: "Influencer marketing",
     outcome:
-      "Active delivery work on structure, presentation, and the core experience while the site remains under development.",
+      "Active delivery work on structure, presentation, and the core experience while the influencer marketing site remains under development.",
     link: "https://pitch.pebbs.app",
     linkLabel: "View website"
+  },
+  {
+    title: "Aspect",
+    description:
+      "A version-one app in development that gives a forecast of how sunlight will strike a property throughout the day, helping homebuyers understand light, shade, and orientation before they buy.",
+    status: "In Delivery",
+    sector: "Property technology",
+    outcome:
+      "A public development build that lets people preview the product and its core sunlight forecasting concept while work continues.",
+    link: "https://aspect.pebbs.app",
+    linkLabel: "View project"
   },
   {
     title: "Booking and Customer Management Setup",

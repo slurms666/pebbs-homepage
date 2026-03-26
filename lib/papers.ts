@@ -9,6 +9,7 @@ const datedFilenamePattern = /^(\d{4})-(\d{2})-(\d{2})[-_\s]+(.+)$/;
 export type ResearchPaper = {
   slug: string;
   title: string;
+  summary?: string;
   filename: string;
   href: string;
   date?: string;
@@ -104,6 +105,7 @@ export async function getResearchPapers(): Promise<ResearchPaper[]> {
         return {
           slug: createSlug(filename),
           title: metadata?.title ?? filenameToTitle(filename),
+          summary: metadata?.summary,
           filename,
           href: `/papers/${filename}`,
           date,
