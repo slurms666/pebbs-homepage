@@ -24,6 +24,9 @@ export function SiteFooter() {
           <Link href="/research" className="hover:text-ink">
             Research
           </Link>
+          <Link href="/faq" className="hover:text-ink">
+            FAQ
+          </Link>
           <a href={`mailto:${site.email}`} className="hover:text-ink">
             {site.email}
           </a>
