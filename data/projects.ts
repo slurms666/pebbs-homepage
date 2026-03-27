@@ -46,28 +46,6 @@ export const projects: ProjectEntry[] = [
     linkLabel: "Open emulator"
   },
   {
-    title: "Flappy Sausage",
-    description:
-      "A simple HTML clone of Flappy Bird, playable on smartphones and computers with a deliberately lightweight, sausage-themed arcade feel.",
-    status: "Delivered",
-    sector: "Browser game",
-    outcome:
-      "Fast, lightweight gameplay that works across desktop and mobile as a playful web-first project.",
-    link: "https://sausage.pebbs.app",
-    linkLabel: "Play game"
-  },
-  {
-    title: "Flappy Postman",
-    description:
-      "A simple HTML game for smartphones and computers, built as a lightweight Flappy-style project with a postman theme.",
-    status: "Delivered",
-    sector: "Browser game",
-    outcome:
-      "Quick, accessible gameplay that runs cleanly across desktop and mobile browsers without any install.",
-    link: "https://postie.pebbs.app",
-    linkLabel: "Play game"
-  },
-  {
     title: "Spin",
     description:
       "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",

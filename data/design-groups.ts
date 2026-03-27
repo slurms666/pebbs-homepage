@@ -15,7 +15,7 @@ export const designGroups: DesignGroupDefinition[] = [
     title: "Pitchfluence Logo",
     client: "Pitchfluence",
     description:
-      "Two logo options created for Pitchfluence, an app in development in the influencer marketing space, shared with permission.",
+      "Two logo options created for Pitchfluence, an app in development in the influencer marketing space.",
     images: ["pitch1.png", "pitch2.png"]
   },
   {
@@ -23,15 +23,7 @@ export const designGroups: DesignGroupDefinition[] = [
     title: "Private Print on Demand Client",
     client: "Private",
     description:
-      "One of many characters we created for a client's POD campaign and an image for an ad they were creating in-house, shared with permission.",
+      "One of many characters we created for a client's POD campaign and an image for an ad they were creating in-house.",
     images: ["pod1.jpg", "pod2.png"]
-  },
-  {
-    slug: "private-client-logos",
-    title: "Private Clients",
-    client: "Private",
-    description:
-      "A small selection of logo designs we created for private clients, shared with permission.",
-    images: ["kpc1.jpg", "kpc2.jpg", "spc1.jpg", "spc2.jpg", "fb.jpg"]
   }
 ];
