@@ -92,7 +92,7 @@ export const projects: ProjectEntry[] = [
   {
     title: "Pitchfluence",
     description:
-      "An in-development influencer marketing website for Pitchfluence, currently being built and refined as a public-facing product that visitors can already preview.",
+      "An in-development influencer marketing website for Pitchfluence, currently being built and refined as a public-facing product that visitors can already preview. Dashboard access is available with the passcode 'pebbles'.",
     status: "In Development",
     sector: "Influencer marketing",
     outcome:
