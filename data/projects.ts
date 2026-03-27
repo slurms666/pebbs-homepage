@@ -68,6 +68,17 @@ export const projects: ProjectEntry[] = [
     linkLabel: "Play game"
   },
   {
+    title: "Drink Roulette",
+    description:
+      "A browser-based cocktail roulette wheel that also includes a shot roulette mode, built as a simple interactive web project for desktop and mobile.",
+    status: "Delivered",
+    sector: "Browser app",
+    outcome:
+      "A lightweight pick-and-play experience that gives users quick drink ideas in a clean format across phones and computers.",
+    link: "https://drink.pebbs.app",
+    linkLabel: "Open project"
+  },
+  {
     title: "Spin",
     description:
       "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",
