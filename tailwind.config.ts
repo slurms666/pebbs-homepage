@@ -11,16 +11,17 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)"],
-        mono: ["var(--font-mono)"]
+        mono: ["var(--font-mono)"],
+        display: ["var(--font-display)"]
       },
       colors: {
-        ink: "#111111",
-        muted: "#5f5f5f",
-        line: "#e7e5e4",
-        panel: "#fafaf9"
+        ink: "#171916",
+        muted: "#60635f",
+        line: "#d8dcd3",
+        panel: "#f6f6f0"
       },
       boxShadow: {
-        card: "0 10px 30px rgba(17, 17, 17, 0.05)"
+        card: "0 20px 45px rgba(23, 25, 22, 0.04), 0 1px 0 rgba(23, 25, 22, 0.06)"
       }
     }
   },

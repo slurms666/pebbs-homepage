@@ -19,8 +19,8 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-20 border-b border-line/80 bg-white/85 backdrop-blur">
-      <div className="section-shell flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+    <header className="sticky top-0 z-20 border-b border-line/90 bg-[rgba(250,250,245,0.9)] backdrop-blur-md">
+      <div className="section-shell flex flex-col gap-4 py-4 xl:flex-row xl:items-center xl:justify-between xl:gap-8">
         <Link href="/" className="flex w-fit items-center">
           <Image
             src="/pebbs-logo.png"
@@ -28,7 +28,7 @@ export function SiteHeader() {
             width={210}
             height={68}
             priority
-            className="h-10 w-auto sm:h-11"
+            className="h-9 w-auto sm:h-10"
           />
         </Link>
         <nav className="flex flex-wrap items-center gap-2">
@@ -39,10 +39,10 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-sm transition ${
+                className={`rounded-[0.8rem] border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition ${
                   isActive
-                    ? "bg-ink text-white"
-                    : "text-muted hover:bg-stone-100 hover:text-ink"
+                    ? "border-ink bg-ink text-panel"
+                    : "border-white/0 bg-white/75 text-muted hover:border-line hover:text-ink"
                 }`}
               >
                 {item.label}
@@ -51,7 +51,7 @@ export function SiteHeader() {
           })}
           <a
             href={`mailto:${site.email}`}
-            className="rounded-full border border-ink px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white"
+            className="rounded-[0.8rem] border border-ink bg-white px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-panel"
           >
             Discuss a Project
           </a>

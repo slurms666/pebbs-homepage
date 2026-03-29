@@ -25,11 +25,11 @@ export default function ContactPage() {
           description="Pebbs.app works with businesses that need a better website, clearer systems, or less manual admin. If that is the problem, get in touch."
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-          <SurfaceCard className="rounded-[1.75rem] p-7 sm:p-8">
+          <SurfaceCard className="rounded-[1.15rem] p-7 sm:p-8">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
               Enquiries
             </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-ink">
+            <h2 className="mt-4 font-display text-4xl leading-[1] tracking-[-0.03em] text-ink">
               Start with a short email.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
@@ -39,14 +39,14 @@ export default function ContactPage() {
             <div className="mt-8">
               <a
                 href={`mailto:${site.email}`}
-                className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black"
+                className="rounded-[0.85rem] bg-ink px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-panel transition hover:bg-black"
               >
                 {site.email}
               </a>
             </div>
           </SurfaceCard>
 
-          <SurfaceCard className="rounded-[1.75rem] p-7 sm:p-8">
+          <SurfaceCard className="rounded-[1.15rem] p-7 sm:p-8">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
               Typical work
             </p>
