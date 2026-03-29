@@ -7,30 +7,30 @@ type PaperCardProps = {
 
 export function PaperCard({ paper }: PaperCardProps) {
   return (
-    <SurfaceCard className="h-full rounded-[1.1rem] p-6 sm:p-7">
+    <SurfaceCard className="h-full rounded-[1.5rem] p-6 sm:p-7">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
             Research
           </p>
-          <h2 className="mt-4 font-display text-2xl leading-[1.02] tracking-[-0.03em] text-ink sm:text-[2.05rem]">
+          <h2 className="mt-4 text-xl font-semibold tracking-[-0.03em] text-ink sm:text-2xl">
             {paper.title}
           </h2>
         </div>
         {paper.displayDate ? (
-          <span className="rounded-[0.75rem] border border-line bg-white/75 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+          <span className="rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
             {paper.displayDate}
           </span>
         ) : null}
       </div>
 
-      <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">{paper.filename}</p>
-      <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
+      <p className="mt-5 font-mono text-xs text-muted">{paper.filename}</p>
+      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">
         {paper.summary ??
           "Direct PDF access for notes, studies, and technical working papers published by Pebbs.app."}
       </p>
 
-      <div className="mt-7 flex flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.18em]">
+      <div className="mt-7 flex flex-wrap gap-4 text-sm">
         <a
           href={paper.href}
           target="_blank"

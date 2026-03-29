@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Baskervville, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/data/site";
 
-const ibmPlexSans = IBM_Plex_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
   variable: "--font-sans"
 });
 
@@ -15,12 +14,6 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono"
-});
-
-const baskervville = Baskervville({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display"
 });
 
 export const metadata: Metadata = {
@@ -50,10 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${baskervville.variable}`}
-    >
+    <html lang="en" className={`${manrope.variable} ${ibmPlexMono.variable}`}>
       <body className="antialiased">
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />

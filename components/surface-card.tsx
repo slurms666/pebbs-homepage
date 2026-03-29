@@ -7,7 +7,7 @@ type SurfaceCardProps = {
 };
 
 export function SurfaceCard({ children, className = "", href }: SurfaceCardProps) {
-  const classes = `paper-panel hairline block overflow-hidden shadow-card transition duration-200 hover:border-ink/20 hover:bg-white ${className}`.trim();
+  const classes = `hairline block bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-lg ${className}`.trim();
 
   if (href) {
     return (

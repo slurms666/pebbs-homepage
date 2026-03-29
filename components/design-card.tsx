@@ -15,9 +15,9 @@ export function DesignCard({ piece }: DesignCardProps) {
   const label = "label" in piece ? piece.label : "Artwork";
 
   return (
-    <SurfaceCard className="h-full rounded-[1.1rem] p-5 sm:p-6">
+    <SurfaceCard className="h-full rounded-[1.5rem] p-5 sm:p-6">
       <a href={piece.href} target="_blank" rel="noreferrer" className="block">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[0.95rem] border border-line bg-stone-100">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-line bg-stone-100">
           <Image
             src={imageHref}
             alt={piece.title}
@@ -31,18 +31,18 @@ export function DesignCard({ piece }: DesignCardProps) {
       <div className="mt-5 flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">{label}</p>
-          <h2 className="mt-3 font-display text-2xl leading-[1.02] tracking-[-0.03em] text-ink">
+          <h2 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-ink">
             {piece.title}
           </h2>
         </div>
         {piece.displayDate ? (
-          <span className="rounded-[0.75rem] border border-line bg-white/75 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+          <span className="rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
             {piece.displayDate}
           </span>
         ) : null}
       </div>
-      <p className="mt-4 text-sm leading-7 text-muted">{summary}</p>
-      <div className="mt-5 flex flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.18em]">
+      <p className="mt-4 text-sm leading-6 text-muted">{summary}</p>
+      <div className="mt-5 flex flex-wrap gap-4 text-sm">
         <a
           href={piece.href}
           target="_blank"

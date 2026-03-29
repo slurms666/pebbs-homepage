@@ -3,18 +3,15 @@ import { site } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-10 border-t border-line/90 bg-[rgba(250,250,245,0.88)]">
-      <div className="section-shell flex flex-col gap-6 py-8 text-sm text-muted xl:flex-row xl:items-end xl:justify-between">
+    <footer className="border-t border-line/80 bg-white/70">
+      <div className="section-shell flex flex-col gap-6 py-8 text-sm text-muted lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
-            Pebbs.app
-          </p>
           <p className="text-ink">{`Copyright ${new Date().getFullYear()} ${site.name}`}</p>
           <p className="mt-1">
             {site.location}-based digital development for modern businesses.
           </p>
         </div>
-        <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
           <Link href="/services" className="hover:text-ink">
             Services
           </Link>
