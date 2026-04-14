@@ -27,6 +27,8 @@ export const projects: ProjectEntry[] = [
       "Small, natural pointer movement while active to help prevent sleep during presentations, screen sharing, monitoring, long downloads, long-form reading, or remote sessions.",
     link: "https://wfh.pebbs.app",
     linkLabel: "Open app",
+    imageSrc: "/projects/wfh.png",
+    imageAlt: "Preview image for the WFH browser utility",
     featured: true
   },
   {
