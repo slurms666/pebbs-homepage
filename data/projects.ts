@@ -127,6 +127,19 @@ export const projects: ProjectEntry[] = [
     imageAlt: "Preview image for the Tsunami Simulator coastal city project"
   },
   {
+    title: "Olliebobs Adventure",
+    description:
+      "We developed this simple one-level platform game to test our Platformer Physics Lab software. Olliebobs Adventure is a lightweight browser game built as a practical physics and movement testbed.",
+    status: "Delivered",
+    sector: "Browser game",
+    outcome:
+      "A playable platformer prototype used to validate movement, collision, and level-behaviour work inside our Platformer Physics Lab tooling.",
+    link: "https://olliebobsadventure.pebbs.app",
+    linkLabel: "Play game",
+    imageSrc: "/projects/olliebobs-adventure.png",
+    imageAlt: "Preview image for the Olliebobs Adventure platform game"
+  },
+  {
     title: "Spin",
     description:
       "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",
