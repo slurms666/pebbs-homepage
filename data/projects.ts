@@ -49,7 +49,9 @@ export const projects: ProjectEntry[] = [
     outcome:
       "Classic mobile gameplay recreated in the browser without requiring any install or setup.",
     link: "https://3310.pebbs.app/",
-    linkLabel: "Open emulator"
+    linkLabel: "Open emulator",
+    imageSrc: "/projects/3310.png",
+    imageAlt: "Preview image for the 3310 emulator project"
   },
   {
     title: "Flappy Sausage",
