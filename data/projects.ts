@@ -58,7 +58,9 @@ export const projects: ProjectEntry[] = [
     outcome:
       "Fast, lightweight gameplay that works across desktop and mobile as a playful web-first project.",
     link: "https://sausage.pebbs.app",
-    linkLabel: "Play game"
+    linkLabel: "Play game",
+    imageSrc: "/projects/flappy-sausage.png",
+    imageAlt: "Preview image for the Flappy Sausage browser game"
   },
   {
     title: "Flappy Postman",
