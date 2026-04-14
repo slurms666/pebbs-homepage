@@ -96,6 +96,19 @@ export const projects: ProjectEntry[] = [
     imageAlt: "Screenshot artwork for the Snek Super Nintendo homebrew project"
   },
   {
+    title: "Tsunami Simulator",
+    description:
+      "Tsunami Simulator is an interactive browser-based 3D coastal city simulation built with procedural world generation and real-time wave impact modeling. Users can explore a dynamically generated shoreline city with dense urban cores, suburbs, farmland, roads, piers, traffic, and pedestrians, then trigger tsunamis ranging from moderate events to extreme mega-tsunamis.",
+    status: "Delivered",
+    sector: "Simulation",
+    outcome:
+      "A visually engaging prototype for exploring tsunami behavior and urban vulnerability in a web environment, with warning systems, customizable wave timing and intensity, crowd panic behavior, inland flooding, recession, and building damage that responds to wave force, speed, exposure, and distance from the coast.",
+    link: "https://tsunami.pebbs.app/",
+    linkLabel: "Open simulator",
+    imageSrc: "/projects/tsunami-simulator.png",
+    imageAlt: "Preview image for the Tsunami Simulator coastal city project"
+  },
+  {
     title: "Spin",
     description:
       "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",
