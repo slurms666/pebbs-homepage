@@ -36,6 +36,8 @@ export const projects: ProjectEntry[] = [
       "Seed-based terrain generation with WASD movement and mouse-look navigation in a lightweight browser experience.",
     link: "https://txtworld.pebbs.app",
     linkLabel: "Explore project",
+    imageSrc: "/projects/txt-world.png",
+    imageAlt: "Preview image for the TXT World ASCII terrain project",
     featured: true
   },
   {
