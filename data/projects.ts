@@ -155,7 +155,9 @@ export const projects: ProjectEntry[] = [
     outcome:
       "A public development build that lets people preview the product and its core sunlight forecasting concept while work continues.",
     link: "https://aspect.pebbs.app",
-    linkLabel: "View project"
+    linkLabel: "View project",
+    imageSrc: "/projects/aspect.png",
+    imageAlt: "Preview image for the Aspect sunlight forecasting project"
   },
   {
     title: "Booking and Customer Management Setup",
