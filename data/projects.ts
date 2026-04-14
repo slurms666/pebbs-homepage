@@ -76,7 +76,7 @@ export const projects: ProjectEntry[] = [
       "Quick, accessible gameplay that runs cleanly across desktop and mobile browsers without any install.",
     link: "https://postie.pebbs.app",
     linkLabel: "Play game",
-    imageSrc: "/projects/flappy-postman.jpg",
+    imageSrc: "/projects/flappy-postman.png",
     imageAlt: "Preview image for the Flappy Postman browser game"
   },
   {
