@@ -140,6 +140,19 @@ export const projects: ProjectEntry[] = [
     imageAlt: "Preview image for the Olliebobs Adventure platform game"
   },
   {
+    title: "Platform Physics Lab",
+    description:
+      "Platform Physics Lab is a browser-based movement tuning tool for 2D platformer developers. Adjust run speed, acceleration, jump, gravity, air control, and forgiveness settings live, then test the result instantly in a playable course.",
+    status: "Delivered",
+    sector: "Developer tool",
+    outcome:
+      "Derived movement metrics, local preset saving, and exportable profiles with reference behavior data help developers tune and match movement feel inside their own game projects.",
+    link: "https://physlab.pebbs.app/lab",
+    linkLabel: "Open lab",
+    imageSrc: "/projects/platform-physics-lab.png",
+    imageAlt: "Preview image for the Platform Physics Lab developer tool"
+  },
+  {
     title: "Spin",
     description:
       "An in-development roulette data logger designed to track results in a clear browser-based interface and support structured analysis over time.",
