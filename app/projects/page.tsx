@@ -103,6 +103,19 @@ export default function ProjectsPage() {
                       ) : null}
                     </div>
                   ) : null}
+                  {project.researchHref ? (
+                    <div className="mt-3">
+                      <a
+                        href={project.researchHref}
+                        className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
+                      >
+                        {project.researchLabel ?? "View research"}
+                      </a>
+                      {project.researchText ? (
+                        <p className="mt-2 text-sm leading-6 text-muted">{project.researchText}</p>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </SurfaceCard>

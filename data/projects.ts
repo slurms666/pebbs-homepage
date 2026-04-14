@@ -11,6 +11,9 @@ export type ProjectEntry = {
   helperHref?: string;
   helperLabel?: string;
   helperText?: string;
+  researchHref?: string;
+  researchLabel?: string;
+  researchText?: string;
   imageSrc?: string;
   imageAlt?: string;
   featured?: boolean;
@@ -162,6 +165,9 @@ export const projects: ProjectEntry[] = [
       "Live project work focused on reliable logging, clean session tracking, and a straightforward workflow for reviewing roulette data.",
     link: "https://spin.pebbs.app/",
     linkLabel: "View project",
+    researchHref: "/research",
+    researchLabel: "View research paper",
+    researchText: "See the related working paper: European Roulette Tables in Online and Live Casinos.",
     imageSrc: "/projects/spin.png",
     imageAlt: "Preview image for the Spin roulette data logger project"
   },
@@ -188,6 +194,10 @@ export const projects: ProjectEntry[] = [
       "A public development build that lets people preview the product and its core sunlight forecasting concept while work continues.",
     link: "https://aspect.pebbs.app",
     linkLabel: "View project",
+    researchHref: "/research",
+    researchLabel: "View research paper",
+    researchText:
+      "See the related working paper: Aspect - Preliminary Research into Development of an App for Homebuyers.",
     imageSrc: "/projects/aspect.png",
     imageAlt: "Preview image for the Aspect sunlight forecasting project"
   },
