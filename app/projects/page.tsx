@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageIntro } from "@/components/page-intro";
 import { SurfaceCard } from "@/components/surface-card";
 import { projects } from "@/data/projects";
@@ -21,6 +22,19 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <SurfaceCard key={project.title} className="h-full rounded-[1.75rem] p-6 sm:p-7">
               <div className="flex h-full flex-col">
+                {project.imageSrc ? (
+                  <div className="mb-6">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-[1.15rem] border border-line bg-panel">
+                      <Image
+                        src={project.imageSrc}
+                        alt={project.imageAlt ?? project.title}
+                        fill
+                        sizes="(min-width: 1280px) 25vw, (min-width: 768px) 40vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                ) : null}
                 <div>
                   <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
                     {project.status}
@@ -45,6 +59,17 @@ export default function ProjectsPage() {
                         className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
                       >
                         {project.linkLabel ?? "Visit project"}
+                      </a>
+                    </div>
+                  ) : null}
+                  {project.downloadHref ? (
+                    <div className="mt-3">
+                      <a
+                        href={project.downloadHref}
+                        download
+                        className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
+                      >
+                        {project.downloadLabel ?? "Download"}
                       </a>
                     </div>
                   ) : null}

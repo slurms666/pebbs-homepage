@@ -6,6 +6,10 @@ export type ProjectEntry = {
   outcome: string;
   link?: string;
   linkLabel?: string;
+  downloadHref?: string;
+  downloadLabel?: string;
+  imageSrc?: string;
+  imageAlt?: string;
   featured?: boolean;
 };
 
@@ -77,6 +81,19 @@ export const projects: ProjectEntry[] = [
       "A lightweight pick-and-play experience that gives users quick drink ideas in a clean format across phones and computers.",
     link: "https://drink.pebbs.app",
     linkLabel: "Open project"
+  },
+  {
+    title: "Snek",
+    description:
+      "We coded 'Snek', inspired by the classic old Nokia phone game Snake, entirely from scratch as a brand-new Super Nintendo homebrew title. Built to run on SNES emulation software, it is a fully playable original .sfc game that recreates the addictive arcade simplicity of the original while bringing it to the Super Nintendo format.",
+    status: "Delivered",
+    sector: "Homebrew game",
+    outcome:
+      "A complete original SNES ROM built from scratch, ready to run in Super Nintendo emulation software as a fully playable homebrew release.",
+    downloadHref: "/projects/snake.sfc",
+    downloadLabel: "Download ROM",
+    imageSrc: "/projects/snes-snek.png",
+    imageAlt: "Screenshot artwork for the Snek Super Nintendo homebrew project"
   },
   {
     title: "Spin",
