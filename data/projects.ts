@@ -133,7 +133,9 @@ export const projects: ProjectEntry[] = [
     outcome:
       "Live project work focused on reliable logging, clean session tracking, and a straightforward workflow for reviewing roulette data.",
     link: "https://spin.pebbs.app/",
-    linkLabel: "View project"
+    linkLabel: "View project",
+    imageSrc: "/projects/spin.png",
+    imageAlt: "Preview image for the Spin roulette data logger project"
   },
   {
     title: "Pitchfluence",
