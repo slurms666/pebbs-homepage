@@ -9,7 +9,22 @@ export const metadata: Metadata = {
   description: "Selected project examples from Pebbs.app."
 };
 
+export const dynamic = "force-dynamic";
+
+function shuffleProjects() {
+  const items = [...projects];
+
+  for (let index = items.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [items[index], items[randomIndex]] = [items[randomIndex], items[index]];
+  }
+
+  return items;
+}
+
 export default function ProjectsPage() {
+  const shuffledProjects = shuffleProjects();
+
   return (
     <section className="page-section">
       <div className="section-shell">
@@ -19,7 +34,7 @@ export default function ProjectsPage() {
           description="A mix of live Pebbs projects and representative delivery work that shows the kind of practical digital systems Pebbs.app builds."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
+          {shuffledProjects.map((project) => (
             <SurfaceCard key={project.title} className="h-full rounded-[1.75rem] p-6 sm:p-7">
               <div className="flex h-full flex-col">
                 {project.imageSrc ? (
