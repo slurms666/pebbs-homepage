@@ -17,29 +17,25 @@ export default function ProjectsPage() {
           title="Selected projects and active development"
           description="A mix of live Pebbs projects and representative delivery work that shows the kind of practical digital systems Pebbs.app builds."
         />
-        <div className="mt-10 grid gap-5">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
-            <SurfaceCard key={project.title} className="rounded-[1.75rem] p-6 sm:p-7">
-              <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                <div className="max-w-3xl">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
-                      {project.status}
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
-                      {project.sector}
-                    </span>
-                  </div>
-                  <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">
+            <SurfaceCard key={project.title} className="h-full rounded-[1.75rem] p-6 sm:p-7">
+              <div className="flex h-full flex-col">
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
+                    {project.status}
+                  </p>
+                  <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-ink">
                     {project.title}
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-muted">{project.description}</p>
                 </div>
-                <div className="max-w-sm border-t border-line/80 pt-5 lg:w-full lg:max-w-xs lg:border-t-0 lg:border-l lg:pl-6 lg:pt-0">
+
+                <div className="mt-6 border-t border-line/80 pt-5">
                   <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">
-                    Outcome
+                    {project.sector}
                   </p>
-                  <p className="mt-3 text-sm leading-6 text-ink">{project.outcome}</p>
+                  <p className="mt-3 text-sm leading-7 text-ink">{project.outcome}</p>
                   {project.link ? (
                     <div className="mt-5">
                       <a
@@ -56,16 +52,17 @@ export default function ProjectsPage() {
               </div>
             </SurfaceCard>
           ))}
+
+          <SurfaceCard className="rounded-[1.75rem] bg-panel p-6 sm:p-7 md:col-span-2 xl:col-span-3">
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
+              More to come
+            </p>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
+              Pebbs.app is always working on new projects. Check back as more work is
+              published over time.
+            </p>
+          </SurfaceCard>
         </div>
-        <SurfaceCard className="mt-10 rounded-[1.75rem] bg-panel p-6 sm:p-7">
-          <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
-            More to come
-          </p>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
-            Pebbs.app is always working on new projects. Check back as more work is
-            published over time.
-          </p>
-        </SurfaceCard>
       </div>
     </section>
   );
