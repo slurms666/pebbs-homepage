@@ -144,7 +144,9 @@ export const projects: ProjectEntry[] = [
     outcome:
       "Active delivery work on structure, presentation, and the core experience while the influencer marketing site remains under development.",
     link: "https://pitch.pebbs.app",
-    linkLabel: "View website"
+    linkLabel: "View website",
+    imageSrc: "/projects/pitchfluence.png",
+    imageAlt: "Preview image for the Pitchfluence website project"
   },
   {
     title: "Aspect",
