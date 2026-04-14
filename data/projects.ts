@@ -8,6 +8,9 @@ export type ProjectEntry = {
   linkLabel?: string;
   downloadHref?: string;
   downloadLabel?: string;
+  helperHref?: string;
+  helperLabel?: string;
+  helperText?: string;
   imageSrc?: string;
   imageAlt?: string;
   featured?: boolean;
@@ -102,6 +105,9 @@ export const projects: ProjectEntry[] = [
       "A complete original SNES ROM built from scratch, ready to run in Super Nintendo emulation software as a fully playable homebrew release.",
     downloadHref: "/projects/snake.sfc",
     downloadLabel: "Download ROM",
+    helperHref: "https://www.snes9x.com/downloads.php",
+    helperLabel: "Get SNES9x",
+    helperText: "SNES9x is a free SNES emulator required to play the game ROM.",
     imageSrc: "/projects/snes-snek.png",
     imageAlt: "Screenshot artwork for the Snek Super Nintendo homebrew project"
   },

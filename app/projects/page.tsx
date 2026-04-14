@@ -88,6 +88,21 @@ export default function ProjectsPage() {
                       </a>
                     </div>
                   ) : null}
+                  {project.helperHref ? (
+                    <div className="mt-3">
+                      <a
+                        href={project.helperHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
+                      >
+                        {project.helperLabel ?? "More info"}
+                      </a>
+                      {project.helperText ? (
+                        <p className="mt-2 text-sm leading-6 text-muted">{project.helperText}</p>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </SurfaceCard>
