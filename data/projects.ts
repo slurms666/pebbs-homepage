@@ -1,7 +1,7 @@
 export type ProjectEntry = {
   title: string;
   description: string;
-  status: "Delivered" | "In Development" | "Planning";
+  status: "Delivered" | "In Development" | "On Hold" | "Planning";
   sector: string;
   outcome: string;
   link?: string;
@@ -145,8 +145,8 @@ export const projects: ProjectEntry[] = [
   {
     title: "Platform Physics Lab",
     description:
-      "Platform Physics Lab is a browser-based movement tuning tool for 2D platformer developers. Adjust run speed, acceleration, jump, gravity, air control, and forgiveness settings live, then test the result instantly in a playable course.",
-    status: "Delivered",
+      "Platform Physics Lab is a browser-based movement tuning tool for 2D platformer developers. We built it as an AI-assisted rapid prototype to test whether a standalone lab could solve a real pain point for developers making retro platformers. The prototype showed useful movement insights, but also made clear that those metrics do not transfer reliably into finished games because physics handling varies too widely between implementations.",
+    status: "On Hold",
     sector: "Developer tool",
     outcome:
       "Derived movement metrics, local preset saving, and exportable profiles with reference behavior data help developers tune and match movement feel inside their own game projects.",
