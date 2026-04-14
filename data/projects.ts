@@ -88,7 +88,9 @@ export const projects: ProjectEntry[] = [
     outcome:
       "A lightweight pick-and-play experience that gives users quick drink ideas in a clean format across phones and computers.",
     link: "https://drink.pebbs.app",
-    linkLabel: "Open project"
+    linkLabel: "Open project",
+    imageSrc: "/projects/drink-roulette.png",
+    imageAlt: "Preview image for the Drink Roulette browser app"
   },
   {
     title: "Snek",
