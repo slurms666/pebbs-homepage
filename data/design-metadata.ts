@@ -23,5 +23,13 @@ export const designMetadata: Record<string, DesignMetadata> = {
   },
   "tshirt-pod-vegan.jpg": {
     title: "Vegan Feminist Shirt Mockup"
+  },
+  "noughtydog1.mp4": {
+    title: "Noughty Dog Product Video 1",
+    summary: "Short product clip created for a private print-on-demand client."
+  },
+  "noughtydog2.mp4": {
+    title: "Noughty Dog Product Video 2",
+    summary: "Additional product clip created for a private print-on-demand client."
   }
 };

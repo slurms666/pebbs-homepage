@@ -11,14 +11,19 @@ import {
 } from "@/lib/content-utils";
 
 const designDirectory = path.join(process.cwd(), "public", "design");
-const imageExtensionPattern = /\.(png|jpe?g|webp|gif|avif|svg)$/i;
+const designAssetExtensionPattern = /\.(png|jpe?g|webp|gif|avif|svg|mp4|webm|mov)$/i;
+const videoExtensionPattern = /\.(mp4|webm|mov)$/i;
+
+export type DesignMediaType = "image" | "video";
 
 export type DesignPiece = {
   slug: string;
   title: string;
   summary?: string;
   filename: string;
-  href: string;
+  assetHref: string;
+  viewerHref: string;
+  mediaType: DesignMediaType;
   date?: string;
   displayDate?: string;
 };
@@ -30,7 +35,7 @@ export type DesignGroup = {
   description: string;
   date?: string;
   displayDate?: string;
-  images: DesignPiece[];
+  media: DesignPiece[];
 };
 
 export type DesignHighlight = {
@@ -38,7 +43,8 @@ export type DesignHighlight = {
   title: string;
   summary: string;
   href: string;
-  imageHref: string;
+  previewHref: string;
+  previewType: DesignMediaType;
   date?: string;
   displayDate?: string;
   label: string;
@@ -49,16 +55,26 @@ export type DesignGallery = {
   standalonePieces: DesignPiece[];
 };
 
+function getMediaType(filename: string): DesignMediaType {
+  return videoExtensionPattern.test(filename) ? "video" : "image";
+}
+
+function getViewerHref(filename: string) {
+  return `/design?media=${encodeURIComponent(filename)}`;
+}
+
 function toDesignPiece(filename: string): DesignPiece {
   const metadata = designMetadata[filename];
-  const date = metadata?.date ?? inferDateFromFilename(filename, imageExtensionPattern);
+  const date = metadata?.date ?? inferDateFromFilename(filename, designAssetExtensionPattern);
 
   return {
-    slug: createSlugFromFilename(filename, imageExtensionPattern),
-    title: metadata?.title ?? filenameToTitle(filename, imageExtensionPattern),
+    slug: createSlugFromFilename(filename, designAssetExtensionPattern),
+    title: metadata?.title ?? filenameToTitle(filename, designAssetExtensionPattern),
     summary: metadata?.summary,
     filename,
-    href: `/design/${filename}`,
+    assetHref: `/design/${filename}`,
+    viewerHref: getViewerHref(filename),
+    mediaType: getMediaType(filename),
     date,
     displayDate: date ? formatDisplayDate(date) : undefined
   };
@@ -68,7 +84,7 @@ export async function getDesignGallery(): Promise<DesignGallery> {
   try {
     const entries = await readdir(designDirectory);
     const pieces = entries
-      .filter((entry) => imageExtensionPattern.test(entry))
+      .filter((entry) => designAssetExtensionPattern.test(entry))
       .map(toDesignPiece)
       .sort(sortByDateThenTitle);
 
@@ -77,18 +93,18 @@ export async function getDesignGallery(): Promise<DesignGallery> {
 
     const groups = designGroups
       .flatMap((group) => {
-        const images = group.images
+        const media = group.media
           .map((filename) => {
             groupedFilenames.add(filename);
             return pieceMap.get(filename);
           })
           .filter((piece): piece is DesignPiece => Boolean(piece));
 
-        if (images.length === 0) {
+        if (media.length === 0) {
           return [];
         }
 
-        const date = group.date ?? images.find((image) => image.date)?.date;
+        const date = group.date ?? media.find((item) => item.date)?.date;
 
         return [
           {
@@ -98,7 +114,7 @@ export async function getDesignGallery(): Promise<DesignGallery> {
             description: group.description,
             date,
             displayDate: date ? formatDisplayDate(date) : undefined,
-            images
+            media
           }
         ];
       })
@@ -130,28 +146,42 @@ export async function getDesignGallery(): Promise<DesignGallery> {
 export async function getDesignHighlights(limit = 2): Promise<DesignHighlight[]> {
   const gallery = await getDesignGallery();
 
-  const groupHighlights: DesignHighlight[] = gallery.groups.map((group) => ({
-    slug: group.slug,
-    title: group.title,
-    summary: group.description,
-    href: `/design#${group.slug}`,
-    imageHref: group.images[0].href,
-    date: group.date,
-    displayDate: group.displayDate,
-    label: `${group.images.length} piece${group.images.length === 1 ? "" : "s"}`
-  }));
+  const groupHighlights: DesignHighlight[] = gallery.groups.flatMap((group) => {
+      const preview = group.media.find((item) => item.mediaType === "image") ?? group.media[0];
+
+      if (!preview) {
+        return [];
+      }
+
+      return [
+        {
+          slug: group.slug,
+          title: group.title,
+          summary: group.description,
+          href: `${preview.viewerHref}#${group.slug}`,
+          previewHref: preview.assetHref,
+          previewType: preview.mediaType,
+          date: group.date,
+          displayDate: group.displayDate,
+          label: `${group.media.length} piece${group.media.length === 1 ? "" : "s"}`
+        }
+      ];
+    });
 
   const standaloneHighlights: DesignHighlight[] = gallery.standalonePieces.map((piece) => ({
     slug: piece.slug,
     title: piece.title,
     summary:
       piece.summary ??
-      "Artwork, identity studies, and design work published directly from the repository.",
-    href: piece.href,
-    imageHref: piece.href,
+      (piece.mediaType === "video"
+        ? "Video work published directly from the repository."
+        : "Artwork, identity studies, and design work published directly from the repository."),
+    href: piece.viewerHref,
+    previewHref: piece.assetHref,
+    previewType: piece.mediaType,
     date: piece.date,
     displayDate: piece.displayDate,
-    label: "Artwork"
+    label: piece.mediaType === "video" ? "Video" : "Artwork"
   }));
 
   return [...groupHighlights, ...standaloneHighlights]

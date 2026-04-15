@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import type { DesignGroup } from "@/lib/design";
 import { SurfaceCard } from "@/components/surface-card";
 
@@ -30,28 +33,34 @@ export function DesignGroupCard({ group }: DesignGroupCardProps) {
         <p className="mt-5 max-w-3xl text-sm leading-7 text-muted">{group.description}</p>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {group.images.map((image) => {
-            const isSvg = image.href.toLowerCase().endsWith(".svg");
+          {group.media.map((item) => {
+            const isSvg = item.mediaType === "image" && item.assetHref.toLowerCase().endsWith(".svg");
 
             return (
-              <a
-                key={image.filename}
-                href={image.href}
-                target="_blank"
-                rel="noreferrer"
-                className="block"
-              >
+              <Link key={item.filename} href={`${item.viewerHref}#${group.slug}`} scroll={false} className="block">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-line bg-stone-100">
-                  <Image
-                    src={image.href}
-                    alt={image.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 50vw"
-                    className="object-cover"
-                    unoptimized={isSvg}
-                  />
+                  {item.mediaType === "video" ? (
+                    <video
+                      src={item.assetHref}
+                      className="h-full w-full object-cover"
+                      muted
+                      playsInline
+                      loop
+                      preload="metadata"
+                      autoPlay
+                    />
+                  ) : (
+                    <Image
+                      src={item.assetHref}
+                      alt={item.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, 50vw"
+                      className="object-cover"
+                      unoptimized={isSvg}
+                    />
+                  )}
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>
