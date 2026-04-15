@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { DesignHighlight, DesignPiece } from "@/lib/design";
+import { ShareActions } from "@/components/share-actions";
 import { SurfaceCard } from "@/components/surface-card";
 
 type DesignCardProps = {
@@ -68,6 +69,11 @@ export function DesignCard({ piece }: DesignCardProps) {
           View {mediaType === "video" ? "video" : "artwork"}
         </Link>
       </div>
+      <ShareActions
+        path={linkHref}
+        title={piece.title}
+        className="mt-4"
+      />
     </SurfaceCard>
   );
 }

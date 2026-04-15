@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { DesignCard } from "@/components/design-card";
 import { DesignGroupCard } from "@/components/design-group-card";
+import { ShareActions } from "@/components/share-actions";
 import { SurfaceCard } from "@/components/surface-card";
 import type { DesignGallery as DesignGalleryData } from "@/lib/design";
 
@@ -37,6 +38,7 @@ export function DesignGallery({ gallery }: DesignGalleryProps) {
   const searchParams = useSearchParams();
   const [groupOrder, setGroupOrder] = useState(gallery.groups);
   const [standaloneOrder, setStandaloneOrder] = useState(gallery.standalonePieces);
+  const [currentHash, setCurrentHash] = useState("");
   const allMedia = flattenMedia(gallery);
   const activeFilename = searchParams.get("media");
   const activeMedia = activeFilename
@@ -50,8 +52,11 @@ export function DesignGallery({ gallery }: DesignGalleryProps) {
 
   useEffect(() => {
     if (!activeMedia) {
+      setCurrentHash("");
       return undefined;
     }
+
+    setCurrentHash(window.location.hash);
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -196,6 +201,11 @@ export function DesignGallery({ gallery }: DesignGalleryProps) {
               {activeMedia.summary ? (
                 <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">{activeMedia.summary}</p>
               ) : null}
+              <ShareActions
+                path={`${activeMedia.viewerHref}${currentHash}`}
+                title={activeMedia.title}
+                className="mt-4"
+              />
             </div>
           </div>
         </div>
