@@ -27,6 +27,21 @@ export const designGroups: DesignGroupDefinition[] = [
     images: ["pod1.jpg", "pod2.png"]
   },
   {
+    slug: "customer-t-shirt-designs",
+    title: "Customer T-Shirt Designs",
+    client: "Several customers",
+    description:
+      "A selection of t-shirt designs we created for several customers for different needs, from print on demand campaigns to activist rallies. These examples are published here with permission.",
+    images: [
+      "tshirt-pod-vegan-advert.jpg",
+      "tshirt-activist-rally.jpg",
+      "tshirt-customer-wear.jpg",
+      "tshirt-sarcasm-calories.jpg",
+      "tshirt-pod-classic.jpg",
+      "tshirt-pod-vegan.jpg"
+    ]
+  },
+  {
     slug: "private-client-logos",
     title: "Private Clients",
     client: "Private",
