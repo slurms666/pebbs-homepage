@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { PageShareBar } from "@/components/page-share-bar";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/data/site";
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body className="antialiased">
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
+          <PageShareBar />
           <main className="flex-1">{children}</main>
           <SiteFooter />
         </div>
