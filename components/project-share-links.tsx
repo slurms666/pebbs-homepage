@@ -40,7 +40,7 @@ export function ProjectShareLinks({
               key={platform.key}
               href={href}
               aria-label={`Share ${title} on ${platform.label}`}
-              className={`text-stone-400 transition-colors ${platform.hoverColorClass}`}
+              className={`inline-flex h-6 w-6 items-center justify-center overflow-visible text-stone-400 transition-colors ${platform.hoverColorClass}`}
               rel={isEmail ? undefined : "noreferrer"}
               target={isEmail ? undefined : "_blank"}
               title={`Share on ${platform.label}`}
