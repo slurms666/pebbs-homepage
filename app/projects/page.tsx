@@ -52,15 +52,35 @@ export default async function ProjectsPage() {
                 <div id={slug} className="flex h-full scroll-mt-28 flex-col">
                   {project.imageSrc ? (
                     <div className="mb-6">
-                      <div className="relative aspect-[16/10] overflow-hidden rounded-[1.15rem] border border-line bg-panel">
-                        <Image
-                          src={project.imageSrc}
-                          alt={project.imageAlt ?? project.title}
-                          fill
-                          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 40vw, 100vw"
-                          className="object-cover"
-                        />
-                      </div>
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="block"
+                          aria-label={`Open ${project.title}`}
+                        >
+                          <div className="relative aspect-[16/10] overflow-hidden rounded-[1.15rem] border border-line bg-panel">
+                            <Image
+                              src={project.imageSrc}
+                              alt={project.imageAlt ?? project.title}
+                              fill
+                              sizes="(min-width: 1280px) 25vw, (min-width: 768px) 40vw, 100vw"
+                              className="object-cover"
+                            />
+                          </div>
+                        </a>
+                      ) : (
+                        <div className="relative aspect-[16/10] overflow-hidden rounded-[1.15rem] border border-line bg-panel">
+                          <Image
+                            src={project.imageSrc}
+                            alt={project.imageAlt ?? project.title}
+                            fill
+                            sizes="(min-width: 1280px) 25vw, (min-width: 768px) 40vw, 100vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
                     </div>
                   ) : null}
 
@@ -85,7 +105,7 @@ export default async function ProjectsPage() {
                           href={project.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-sm font-medium text-ink underline decoration-line underline-offset-4"
+                          className="inline-flex items-center justify-center rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition hover:bg-black"
                         >
                           {project.linkLabel ?? "Visit project"}
                         </a>
