@@ -19,6 +19,40 @@ const pageTitles: Record<string, string> = {
   "/contact": "Contact | Pebbs.app"
 };
 
+const socialProfiles = [
+  {
+    href: "https://www.facebook.com/profile.php?id=61566248830933",
+    iconHref: "/share-icons/facebook.svg",
+    label: "Facebook",
+    hoverColorClass: "hover:text-[#1877f2]"
+  },
+  {
+    href: "https://github.com/slurms666/",
+    iconHref: "/social-icons/github.svg",
+    label: "GitHub",
+    hoverColorClass: "hover:text-[#111111]"
+  }
+];
+
+function MaskedIcon({ iconHref }: { iconHref: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="block h-5 w-5 bg-current"
+      style={{
+        WebkitMaskImage: `url(${iconHref})`,
+        WebkitMaskPosition: "center",
+        WebkitMaskRepeat: "no-repeat",
+        WebkitMaskSize: "contain",
+        maskImage: `url(${iconHref})`,
+        maskPosition: "center",
+        maskRepeat: "no-repeat",
+        maskSize: "contain"
+      }}
+    />
+  );
+}
+
 export function PageShareBar() {
   const pathname = usePathname();
   const [pageTitle, setPageTitle] = useState(pageTitles[pathname] ?? "Pebbs.app");
@@ -30,7 +64,23 @@ export function PageShareBar() {
 
   return (
     <div className="section-shell pt-3 sm:pt-4">
-      <div className="flex justify-center md:justify-end">
+      <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
+        <div className="hairline inline-flex max-w-full flex-wrap items-center justify-center gap-3 rounded-[1.15rem] bg-white/92 px-3 py-2 shadow-card sm:px-4">
+          {socialProfiles.map((profile) => (
+            <a
+              key={profile.label}
+              href={profile.href}
+              aria-label={`Visit Pebbs.app on ${profile.label}`}
+              className={`inline-flex h-6 w-6 items-center justify-center overflow-visible text-stone-400 transition-colors ${profile.hoverColorClass}`}
+              rel="noreferrer"
+              target="_blank"
+              title={`Pebbs.app on ${profile.label}`}
+            >
+              <MaskedIcon iconHref={profile.iconHref} />
+            </a>
+          ))}
+        </div>
+
         <div className="hairline inline-flex max-w-full flex-wrap items-center justify-center gap-3 rounded-[1.15rem] bg-white/92 px-3 py-2 shadow-card sm:px-4">
           {preferredPlatformOrder.map((platformKey) => {
             const platform = sharePlatformDefinitions[platformKey];
@@ -51,20 +101,7 @@ export function PageShareBar() {
                 target={isEmail ? undefined : "_blank"}
                 title={`Share on ${platform.label}`}
               >
-                <span
-                  aria-hidden="true"
-                  className="block h-5 w-5 bg-current"
-                  style={{
-                    WebkitMaskImage: `url(/share-icons/${platformKey}.svg)`,
-                    WebkitMaskPosition: "center",
-                    WebkitMaskRepeat: "no-repeat",
-                    WebkitMaskSize: "contain",
-                    maskImage: `url(/share-icons/${platformKey}.svg)`,
-                    maskPosition: "center",
-                    maskRepeat: "no-repeat",
-                    maskSize: "contain"
-                  }}
-                />
+                <MaskedIcon iconHref={`/share-icons/${platformKey}.svg`} />
               </a>
             );
           })}
