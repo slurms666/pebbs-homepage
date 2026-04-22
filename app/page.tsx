@@ -18,9 +18,44 @@ const practicalPoints = [
 ];
 
 const businessFacts = [
-  `Based in ${site.location}`,
-  `Led by ${site.lead}`,
-  "Focused on small and medium-sized businesses"
+  {
+    key: "location",
+    content: `Based in ${site.location}`
+  },
+  {
+    key: "lead",
+    content: (
+      <>
+      Led by {site.lead}
+      <a
+        href="https://www.linkedin.com/in/karl-gregory-a723163b8/"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="View Karl Gregory on LinkedIn"
+        className="ml-2 inline-flex h-5 w-5 align-[-0.25rem] text-stone-400 transition-colors hover:text-[#0a66c2]"
+      >
+        <span
+          aria-hidden="true"
+          className="block h-5 w-5 bg-current"
+          style={{
+            WebkitMaskImage: "url(/social-icons/linkedin.svg)",
+            WebkitMaskPosition: "center",
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskSize: "contain",
+            maskImage: "url(/social-icons/linkedin.svg)",
+            maskPosition: "center",
+            maskRepeat: "no-repeat",
+            maskSize: "contain"
+          }}
+        />
+      </a>
+      </>
+    )
+  },
+  {
+    key: "focus",
+    content: "Focused on small and medium-sized businesses"
+  }
 ];
 
 export default async function HomePage() {
@@ -91,7 +126,7 @@ export default async function HomePage() {
                 </p>
                 <div className="mt-5 space-y-3 text-sm leading-6 text-muted">
                   {businessFacts.map((fact) => (
-                    <p key={fact}>{fact}</p>
+                    <p key={fact.key}>{fact.content}</p>
                   ))}
                 </div>
               </SurfaceCard>
