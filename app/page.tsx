@@ -32,7 +32,7 @@ const businessFacts = [
         target="_blank"
         rel="noreferrer"
         aria-label="View Karl Gregory on LinkedIn"
-        className="ml-2 inline-flex h-5 w-5 align-[-0.25rem] text-stone-400 transition-colors hover:text-[#0a66c2]"
+        className="ml-2 inline-flex h-5 w-5 align-[-0.25rem] text-[#0a66c2] transition-colors hover:text-stone-400"
       >
         <span
           aria-hidden="true"

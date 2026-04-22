@@ -24,13 +24,13 @@ const socialProfiles = [
     href: "https://www.facebook.com/profile.php?id=61566248830933",
     iconHref: "/share-icons/facebook.svg",
     label: "Facebook",
-    hoverColorClass: "hover:text-[#1877f2]"
+    colorClass: "text-[#1877f2] hover:text-stone-400"
   },
   {
     href: "https://github.com/slurms666/",
     iconHref: "/social-icons/github.svg",
     label: "GitHub",
-    hoverColorClass: "hover:text-[#111111]"
+    colorClass: "text-[#111111] hover:text-stone-400"
   }
 ];
 
@@ -71,7 +71,7 @@ export function PageShareBar() {
               key={profile.label}
               href={profile.href}
               aria-label={`Visit Pebbs.app on ${profile.label}`}
-              className={`inline-flex h-6 w-6 items-center justify-center overflow-visible text-stone-400 transition-colors ${profile.hoverColorClass}`}
+              className={`inline-flex h-6 w-6 items-center justify-center overflow-visible transition-colors ${profile.colorClass}`}
               rel="noreferrer"
               target="_blank"
               title={`Pebbs.app on ${profile.label}`}
